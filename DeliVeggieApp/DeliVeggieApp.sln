@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.APIGateway", "DeliVeggieApp.APIGateway\DeliVeggieApp.APIGateway.csproj", "{3CD4175A-9E8F-4E2B-BE4C-0A6F3262047D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.Infrastructure.BuildingBlocks", "DeliVeggieApp.BuildingBlocks\DeliVeggieApp.Infrastructure.BuildingBlocks.csproj", "{C0225AAE-12DF-4618-8193-BA5BA8F54014}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.Infrastructure.Repositories", "DeliVeggie.Repositories\DeliVeggieApp.Infrastructure.Repositories.csproj", "{5670E85E-BFDC-4D27-A910-440C96B85034}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{3CD4175A-9E8F-4E2B-BE4C-0A6F3262047D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CD4175A-9E8F-4E2B-BE4C-0A6F3262047D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CD4175A-9E8F-4E2B-BE4C-0A6F3262047D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0225AAE-12DF-4618-8193-BA5BA8F54014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0225AAE-12DF-4618-8193-BA5BA8F54014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0225AAE-12DF-4618-8193-BA5BA8F54014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0225AAE-12DF-4618-8193-BA5BA8F54014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5670E85E-BFDC-4D27-A910-440C96B85034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5670E85E-BFDC-4D27-A910-440C96B85034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5670E85E-BFDC-4D27-A910-440C96B85034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5670E85E-BFDC-4D27-A910-440C96B85034}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
