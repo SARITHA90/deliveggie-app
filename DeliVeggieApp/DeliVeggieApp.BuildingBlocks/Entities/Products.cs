@@ -12,7 +12,6 @@ namespace DeliVeggieApp.BuildingBlocks.Entities
         public string Id { get; set; }
         public string Name { get; set; }
         public DateTime EntryDate { get; set; }
-        public double Price { get; set; }
-        public IEnumerable<PriceReductions> PriceReductions { get; set; }
+        public double Price { get; set; }      
     }
 }

@@ -1,5 +1,4 @@
-﻿using DeliVeggieApp.BuildingBlocks.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses
 {

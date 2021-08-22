@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses
+﻿namespace DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses
 {
     public class ProductDetailsResponse
     {
