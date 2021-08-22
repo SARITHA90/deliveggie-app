@@ -1,0 +1,23 @@
+<h1>Product Details</h1>
+
+<table style="width: 80%;top:10px;">
+    <tr>
+      <th>Name:</th>
+      <td>{{productDeatils?.name}}</td>
+    </tr>
+    <tr>
+      <th>Entry Date:</th>
+      <td>{{productDeatils?.entryDate  | date}}</td>
+    </tr>
+    <tr>
+      <th>Current Price:</th>
+      <td>{{productDeatils?.currentPrice | currency}}</td>
+    </tr>
+  </table>
+
+  <br/>
+ 
+<!-- 
+ <div style="width:100%;"><div  style="width:50%;"><h3>Name: </h3></div><div  style="width:50%;"> {{productDeatils?.name}}</div></div>
+ <div class="row col-12"><div class="col-6"><h3>Entry Date: </h3></div><div class="col-6">{{productDeatils?.entryDate  | date}}</div></div>
+ <div class="row col-12"><div class="col-6"><h3>Current Price : </h3></div><div class="col-6">{{productDeatils?.currentPrice}}</div></div> -->

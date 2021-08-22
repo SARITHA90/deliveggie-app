@@ -1,0 +1,18 @@
+<h1>Products List</h1>
+<table id="users">
+    <tr>
+        <th *ngFor="let column of headElements;">
+            {{column}}
+        </th>
+    </tr>
+
+    <tr *ngFor="let row of products;let i = index">
+        <td>
+            {{i+1}}
+        </td>
+        <td>
+            {{row.name}}
+        </td>
+        <td><a href="products/{{row.id}}">View Details</a></td>
+    </tr>
+</table>
