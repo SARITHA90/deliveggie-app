@@ -1,26 +1,24 @@
-﻿
-using DeliVeggieApp.Infrastructure.BuildingBlocks.DataBaseContext;
-using DeliVeggieApp.Infrastructure.BuildingBlocks.Models;
-using DeliVeggieApp.Infrastructure.Messaging.Subscriber;
+﻿using DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Requests;
+using DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses;
+using DeliVeggieApp.Infrastructure.Messaging;
 using DeliVeggieApp.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
-namespace DeliVeggieApp.Services.Product
+namespace DeliVeggieApp.Services.Products
 {
     internal class Program
     {
         private static ServiceProvider _services;
         private static IProductRepository _productService;
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("Product Microservice Started..");
-            _services = new ServiceCollection()               
+            _services = new ServiceCollection()
                 .AddSingleton<ISubscriber>(x => new Subscriber())
-                .AddSingleton<IProductRepository>(x => new ProductRepository(new ProductContext()))
+                .AddSingleton<IProductRepository>(x => new ProductRepository())
                 .BuildServiceProvider();
             var bus = _services.GetService<ISubscriber>();
             _productService = _services.GetService<IProductRepository>();
@@ -36,14 +34,14 @@ namespace DeliVeggieApp.Services.Product
             if (arg is Request<ProductDetailsRequest> detailsRequest)
             {
                 Console.WriteLine($"Gateway sent a request to retrieve details of product with ID {detailsRequest.Data.Id}.");
-                //var details = productResponses.Where(a => a.Id == detailsRequest.Data.Id).FirstOrDefault();
 
                 var details = Task.Run(async () =>
                 {
-                    return await _productService.GetProduct(new ProductDetailsRequest {Id= detailsRequest.Data.Id });
+                    return await _productService.GetProduct(new ProductDetailsRequest { Id = detailsRequest.Data.Id });
                 }).GetAwaiter().GetResult();
                 IResponse data = new Response<ProductDetailsResponse>() { Data = details };
                 return data;
+
 
             }
             else
@@ -52,10 +50,11 @@ namespace DeliVeggieApp.Services.Product
 
                 var details = Task.Run(async () =>
                 {
-                    return await _productService.GetProducts();
+                    return await _productService.GetProducts(new ProductsRequest { });
                 }).GetAwaiter().GetResult();
-                IResponse data = new Response<List<ProductsResponse>>() { Data= details?.ToList()};
+                IResponse data = new Response<List<ProductsResponse>>() { Data = details };
                 return data;
+
             }
 
         }

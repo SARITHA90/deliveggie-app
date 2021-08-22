@@ -19,7 +19,6 @@
     },
     "DeliVeggieApp.APIGateway": {
       "commandName": "Project",
-      "dotnetRunMessages": "true",
       "launchBrowser": true,
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5000",

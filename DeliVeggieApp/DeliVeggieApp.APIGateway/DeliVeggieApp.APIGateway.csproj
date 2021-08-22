@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,11 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DeliVeggie.Repositories\DeliVeggieApp.Infrastructure.Repositories.csproj" />
+    <ProjectReference Include="..\DeliVeggieApp.Infrastructure.Messaging\DeliVeggieApp.Infrastructure.Messaging.csproj" />
   </ItemGroup>
 
 </Project>

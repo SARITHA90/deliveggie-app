@@ -1,4 +1,4 @@
-﻿namespace DeliVeggieApp.Infrastructure.BuildingBlocks.Models
+﻿namespace DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses
 {
     public class ProductsResponse
     {

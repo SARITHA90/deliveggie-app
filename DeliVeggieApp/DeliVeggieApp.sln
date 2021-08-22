@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.Infrastructur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.Infrastructure.Messaging", "DeliVeggieApp.Infrastructure.Messaging\DeliVeggieApp.Infrastructure.Messaging.csproj", "{5501B991-F6D0-4B44-B463-8F444D60A36C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.Services.Product", "DeliVeggieApp.Services.Product\DeliVeggieApp.Services.Product.csproj", "{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.Services.Products", "DeliVeggieApp.Services.Product\DeliVeggieApp.Services.Products.csproj", "{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
