@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.APIGateway", "DeliVeggieApp.APIGateway\DeliVeggieApp.APIGateway.csproj", "{3CD4175A-9E8F-4E2B-BE4C-0A6F3262047D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.APIGateway", "DeliVeggieApp.APIGateway\DeliVeggieApp.APIGateway.csproj", "{3CD4175A-9E8F-4E2B-BE4C-0A6F3262047D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.Infrastructure.BuildingBlocks", "DeliVeggieApp.BuildingBlocks\DeliVeggieApp.Infrastructure.BuildingBlocks.csproj", "{C0225AAE-12DF-4618-8193-BA5BA8F54014}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.Infrastructure.BuildingBlocks", "DeliVeggieApp.BuildingBlocks\DeliVeggieApp.Infrastructure.BuildingBlocks.csproj", "{C0225AAE-12DF-4618-8193-BA5BA8F54014}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.Infrastructure.Repositories", "DeliVeggie.Repositories\DeliVeggieApp.Infrastructure.Repositories.csproj", "{5670E85E-BFDC-4D27-A910-440C96B85034}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.Infrastructure.Repositories", "DeliVeggie.Repositories\DeliVeggieApp.Infrastructure.Repositories.csproj", "{5670E85E-BFDC-4D27-A910-440C96B85034}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.Infrastructure.Messaging", "DeliVeggieApp.Infrastructure.Messaging\DeliVeggieApp.Infrastructure.Messaging.csproj", "{5501B991-F6D0-4B44-B463-8F444D60A36C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.Services.Product", "DeliVeggieApp.Services.Product\DeliVeggieApp.Services.Product.csproj", "{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{5670E85E-BFDC-4D27-A910-440C96B85034}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5670E85E-BFDC-4D27-A910-440C96B85034}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5670E85E-BFDC-4D27-A910-440C96B85034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5501B991-F6D0-4B44-B463-8F444D60A36C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5501B991-F6D0-4B44-B463-8F444D60A36C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5501B991-F6D0-4B44-B463-8F444D60A36C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5501B991-F6D0-4B44-B463-8F444D60A36C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

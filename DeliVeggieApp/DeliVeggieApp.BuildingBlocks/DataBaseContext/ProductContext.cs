@@ -4,9 +4,9 @@ using MongoDB.Driver;
 
 namespace DeliVeggieApp.Infrastructure.BuildingBlocks.DataBaseContext
 {
-    public class ProductContext
+    public class ProductContext:IProductContext
     {
-        public ProductContext(IConfiguration configuration)
+        public ProductContext()
         {
             var client = new MongoClient("mongodb://localhost:27017");
             var database = client.GetDatabase("DeliVeggieDB");

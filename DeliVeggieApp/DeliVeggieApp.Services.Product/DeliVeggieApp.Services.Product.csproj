@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Core" Version="1.18.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DeliVeggie.Repositories\DeliVeggieApp.Infrastructure.Repositories.csproj" />
+    <ProjectReference Include="..\DeliVeggieApp.Infrastructure.Messaging\DeliVeggieApp.Infrastructure.Messaging.csproj" />
+  </ItemGroup>
+
+</Project>

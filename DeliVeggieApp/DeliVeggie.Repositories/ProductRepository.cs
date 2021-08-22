@@ -1,5 +1,5 @@
-﻿using DeliVeggieApp.BuildingBlocks.Entities;
-using DeliVeggieApp.Infrastructure.BuildingBlocks.DataBaseContext;
+﻿using DeliVeggieApp.Infrastructure.BuildingBlocks.DataBaseContext;
+using DeliVeggieApp.Infrastructure.BuildingBlocks.Models;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -16,16 +16,30 @@ namespace DeliVeggieApp.Repositories
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
-        public async  Task<IEnumerable<Product>> GetProducts()
+        public async  Task<IEnumerable<ProductsResponse>> GetProducts()
         {
-            return await _context.Products.Find(c => true).ToListAsync();
+            var products= await _context.Products.Find(c => true).ToListAsync();
+            var response = products.Select(x => new ProductsResponse
+            {
+                Id = x.Id,
+                Name = x.Name
+            }).ToList();
+            return response;
+           
             //TODO: create  response here
         }
 
-        public async Task<Product> GetProduct(string id)
+        public async Task<ProductDetailsResponse> GetProduct(ProductDetailsRequest  req)
         {
-            var product = await _context.Products.Find(c => c.Id == id).FirstOrDefaultAsync();
-            return product;
+            var product = await _context.Products.Find(c => c.Id == req.Id).FirstOrDefaultAsync();      
+             var response = new ProductDetailsResponse
+            {
+                Id = product.Id,
+                Name = product.Name,
+                EntryDate = product.EntryDate,
+                CurrentPrice = product.Price
+            };
+            return response;
             //TODO: add price reduction logic here
         }
     }
