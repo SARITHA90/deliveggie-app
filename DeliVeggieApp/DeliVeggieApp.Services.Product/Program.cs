@@ -28,36 +28,43 @@ namespace DeliVeggieApp.Services.Products
                 bus?.Subscribe(EventHandler);
             }
         }
-
+        /// <summary>
+        /// Callback event of subscribe 
+        /// </summary>
+        /// <param name="arg"></param>
+        /// <returns></returns>
         private static IResponse EventHandler(IRequest arg)
         {
-
-            if (arg is  Request<ProductDetailsRequest> detailsRequest)
+            switch (arg)
             {
-                Console.WriteLine($"Gateway sent a request to retrieve details of product with ID {detailsRequest.Data.Id}.");
+                case Request<ProductDetailsRequest> detailsRequest:
+                    {
+                        Console.WriteLine($"Gateway sent a request to retrieve details of product with ID {detailsRequest.Data.Id}.");
 
-                var details = Task.Run(async () =>
-                {
-                    return await _productService.GetProductAsync(new ProductDetailsRequest { Id = detailsRequest.Data.Id });
-                }).GetAwaiter().GetResult();
-                IResponse data = new Response<ProductDetailsResponse>() { Data = details };
-                return data;
+                        var details = Task.Run(async () =>
+                        {
+                            return await _productService.GetProductAsync(new ProductDetailsRequest { Id = detailsRequest.Data.Id });
+                        }).GetAwaiter().GetResult();
+                        IResponse data = new Response<ProductDetailsResponse>() { Data = details };
+                        return data;
 
 
+                    }
+                case Request<ProductsRequest> productsRequest:
+                    {
+                        Console.WriteLine($"Gateway sent a request to retrieve all products.");
+
+                        var details = Task.Run(async () =>
+                        {
+                            return await _productService.GetProductsAsync(new ProductsRequest());
+                        }).GetAwaiter().GetResult();
+                        IResponse data = new Response<ProductsResponse>() { Data = details };
+                        return data;
+
+                    }
+                default:
+                    return null;
             }
-            if (arg is Request<ProductsRequest> productsRequest)
-            {               
-                Console.WriteLine($"Gateway sent a request to retrieve all products.");
-
-                var details = Task.Run(async () =>
-                {
-                    return await _productService.GetProductsAsync(new ProductsRequest());
-                }).GetAwaiter().GetResult();
-                IResponse data = new Response<ProductsResponse>() { Data = details };
-                return data;
-
-            }
-            return null;
 
         }
     }

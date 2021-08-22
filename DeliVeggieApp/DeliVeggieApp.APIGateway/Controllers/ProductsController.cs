@@ -2,7 +2,6 @@
 using DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses;
 using DeliVeggieApp.Infrastructure.Messaging;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace DeliVeggieApp.APIGateway.Controllers
 {
@@ -32,8 +31,7 @@ namespace DeliVeggieApp.APIGateway.Controllers
         [HttpGet("{id}")]
         public IActionResult GetProduct(string id)
         {
-            var request = new Request<ProductDetailsRequest>() { Data = new ProductDetailsRequest() { Id = id } };
-           
+            var request = new Request<ProductDetailsRequest>() { Data = new ProductDetailsRequest() { Id = id } };           
              var data = _publisher.Publish(request);
             if (!(data is Response<ProductDetailsResponse> response))
             {

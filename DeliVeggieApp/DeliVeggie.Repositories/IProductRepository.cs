@@ -1,6 +1,5 @@
 ﻿using DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Requests;
 using DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DeliVeggieApp.Repositories
