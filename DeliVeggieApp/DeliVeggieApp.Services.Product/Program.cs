@@ -1,11 +1,9 @@
-﻿using DeliVeggieApp.Infrastructure.BuildingBlocks.DataBaseContext;
-using DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Requests;
+﻿using DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Requests;
 using DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses;
 using DeliVeggieApp.Infrastructure.Messaging;
 using DeliVeggieApp.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DeliVeggieApp.Services.Products
@@ -16,7 +14,7 @@ namespace DeliVeggieApp.Services.Products
         private static IProductRepository _productService;
         private static void Main(string[] args)
         {
-            Console.WriteLine("Product Microservice Started..");
+            Console.WriteLine("Product Microservice Started...");
             _services = new ServiceCollection()
                 .AddSingleton<ISubscriber>(x => new Subscriber())
                 .AddSingleton<IProductRepository>(x => new ProductRepository())
@@ -37,22 +35,9 @@ namespace DeliVeggieApp.Services.Products
         {
             switch (arg)
             {
-                case Request<ProductDetailsRequest> detailsRequest:
+                case Request<ProductsRequest> productsRequestCommand:
                     {
-                        Console.WriteLine($"Gateway sent a request to retrieve details of product with ID {detailsRequest.Data.Id}.");
-
-                        var details = Task.Run(async () =>
-                        {
-                            return await _productService.GetProductAsync(new ProductDetailsRequest { Id = detailsRequest.Data.Id });
-                        }).GetAwaiter().GetResult();
-                        IResponse data = new Response<ProductDetailsResponse>() { Data = details };
-                        return data;
-
-
-                    }
-                case Request<ProductsRequest> productsRequest:
-                    {
-                        Console.WriteLine($"Gateway sent a request to retrieve all products.");
+                        Console.WriteLine($"Request has been published to retrieve all products.");
 
                         var details = Task.Run(async () =>
                         {
@@ -62,6 +47,21 @@ namespace DeliVeggieApp.Services.Products
                         return data;
 
                     }
+
+                case Request<ProductDetailsRequest> detailsRequestCommand:
+                    {
+                        Console.WriteLine($"Request has been published to retrieve details of product with ID {detailsRequestCommand.Data.Id}.");
+
+                        var details = Task.Run(async () =>
+                        {
+                            return await _productService.GetProductAsync(new ProductDetailsRequest { Id = detailsRequestCommand.Data.Id });
+                        }).GetAwaiter().GetResult();
+                        IResponse data = new Response<ProductDetailsResponse>() { Data = details };
+                        return data;
+
+
+                    }
+
                 default:
                     return null;
             }

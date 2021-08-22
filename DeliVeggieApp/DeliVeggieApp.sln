@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.Infrastructur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.Infrastructure.Messaging", "DeliVeggieApp.Infrastructure.Messaging\DeliVeggieApp.Infrastructure.Messaging.csproj", "{5501B991-F6D0-4B44-B463-8F444D60A36C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.Services.Products", "DeliVeggieApp.Services.Product\DeliVeggieApp.Services.Products.csproj", "{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.Services.Products", "DeliVeggieApp.Services.Product\DeliVeggieApp.Services.Products.csproj", "{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.Services.Test", "DeliVeggieApp.ProductsServiceTest\DeliVeggieApp.Services.Test.csproj", "{C62B06DA-C6D0-407E-B99C-3334222A8772}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C62B06DA-C6D0-407E-B99C-3334222A8772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C62B06DA-C6D0-407E-B99C-3334222A8772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C62B06DA-C6D0-407E-B99C-3334222A8772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C62B06DA-C6D0-407E-B99C-3334222A8772}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
