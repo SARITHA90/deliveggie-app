@@ -31,31 +31,32 @@ namespace DeliVeggieApp.Services.Products
         private static IResponse EventHandler(IRequest arg)
         {
 
-            if (arg is Request<ProductDetailsRequest> detailsRequest)
+            if (arg is  Request<ProductDetailsRequest> detailsRequest)
             {
                 Console.WriteLine($"Gateway sent a request to retrieve details of product with ID {detailsRequest.Data.Id}.");
 
                 var details = Task.Run(async () =>
                 {
-                    return await _productService.GetProduct(new ProductDetailsRequest { Id = detailsRequest.Data.Id });
+                    return await _productService.GetProductAsync(new ProductDetailsRequest { Id = detailsRequest.Data.Id });
                 }).GetAwaiter().GetResult();
                 IResponse data = new Response<ProductDetailsResponse>() { Data = details };
                 return data;
 
 
             }
-            else
-            {
+            if (arg is Request<ProductsRequest> productsRequest)
+            {               
                 Console.WriteLine($"Gateway sent a request to retrieve all products.");
 
                 var details = Task.Run(async () =>
                 {
-                    return await _productService.GetProducts(new ProductsRequest { });
+                    return await _productService.GetProductsAsync(new ProductsRequest());
                 }).GetAwaiter().GetResult();
-                IResponse data = new Response<List<ProductsResponse>>() { Data = details };
+                IResponse data = new Response<ProductsResponse>() { Data = details };
                 return data;
 
             }
+            return null;
 
         }
     }

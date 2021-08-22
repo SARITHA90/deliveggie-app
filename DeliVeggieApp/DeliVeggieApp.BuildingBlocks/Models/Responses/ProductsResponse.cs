@@ -1,8 +1,12 @@
-﻿namespace DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses
+﻿using DeliVeggieApp.BuildingBlocks.Entities;
+using System.Collections.Generic;
+
+namespace DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses
 {
     public class ProductsResponse
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-    }
+        public  List<Product> ProductsList { get; set; }
+    } 
+
+
 }

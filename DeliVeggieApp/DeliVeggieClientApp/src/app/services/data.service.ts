@@ -10,8 +10,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
 
-getData$(apiName): Observable<any[]>{
- 
+getData$(apiName): Observable<any>{
 
   return this.http.get<any>(`${this.apiBaseUrl}${apiName}/`);
 }

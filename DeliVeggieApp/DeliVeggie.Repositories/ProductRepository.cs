@@ -2,8 +2,6 @@
 using DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Requests;
 using DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,40 +10,38 @@ namespace DeliVeggieApp.Repositories
     public class ProductRepository: IProductRepository
     {
             
-         private readonly IMongoCollection<Product> _products;
+         private readonly IMongoCollection<Products> _products;
 
         public ProductRepository()
         {
 
             var client = new MongoClient("mongodb://localhost:27017");
             var database = client.GetDatabase("DeliVeggieDB");
-            _products = database.GetCollection<Product>("Products");
+            _products = database.GetCollection<Products>("Products");
         }
-        public async  Task<List<ProductsResponse>> GetProducts(ProductsRequest request)
+        public async Task<ProductsResponse> GetProductsAsync(ProductsRequest request)
         {
-                var products = await _products.Find(c => true).ToListAsync();
-                var response = products.Select(x => new ProductsResponse
-                {
-                    Id =x.Id,
-                    Name = x.Name
-                }).ToList();
-                return response;
-           
-           
-            //TODO: create  response here
+            var unMappedProducts = await _products.Find(c => true).ToListAsync();
+            var response = unMappedProducts.Select(p => new Product
+            {
+                Id = p.Id,
+                Name = p.Name
+            })?.ToList();
+            return new ProductsResponse { ProductsList = response };
         }
 
-        public async Task<ProductDetailsResponse> GetProduct(ProductDetailsRequest  req)
+        public async Task<ProductDetailsResponse> GetProductAsync(ProductDetailsRequest  req)
         {
-            var product = await _products.Find(c => c.Id == req.Id).FirstOrDefaultAsync();      
-             var response = new ProductDetailsResponse
+            var product = await _products.Find(c => c.Id == req.Id).FirstOrDefaultAsync();
+            if (product == null) return null;
+            var response = new Product
             {
                 Id = product.Id,
                 Name = product.Name,
                 EntryDate = product.EntryDate,
                 CurrentPrice = product.Price
             };
-            return response;
+            return new ProductDetailsResponse { Product = response };
             //TODO: add price reduction logic here
         }
     }

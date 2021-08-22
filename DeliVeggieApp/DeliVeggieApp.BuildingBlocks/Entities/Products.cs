@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace DeliVeggieApp.BuildingBlocks.Entities
 {
-    public class Product
+    public class Products
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -13,6 +13,6 @@ namespace DeliVeggieApp.BuildingBlocks.Entities
         public string Name { get; set; }
         public DateTime EntryDate { get; set; }
         public double Price { get; set; }
-        public IEnumerable<PriceReduction> PriceReductions { get; set; }
+        public IEnumerable<PriceReductions> PriceReductions { get; set; }
     }
 }

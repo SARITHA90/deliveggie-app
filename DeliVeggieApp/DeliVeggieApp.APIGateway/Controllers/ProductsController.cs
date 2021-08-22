@@ -3,7 +3,6 @@ using DeliVeggieApp.Infrastructure.BuildingBlocks.Models.Responses;
 using DeliVeggieApp.Infrastructure.Messaging;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace DeliVeggieApp.APIGateway.Controllers
 {
@@ -19,10 +18,11 @@ namespace DeliVeggieApp.APIGateway.Controllers
 
         [HttpGet]       
         public IActionResult GetAllProducts()
+        
         {
-            var request = new Request<ProductsRequest>() { Data = new ProductsRequest() { } };
+            var request = new Request<ProductsRequest>() { Data = new ProductsRequest() };
             var data = _publisher.Publish(request);
-            if (!(data is Response<List<ProductsResponse>> response))
+            if (!(data is Response<ProductsResponse> response))
             {
                 return NotFound();
             }
