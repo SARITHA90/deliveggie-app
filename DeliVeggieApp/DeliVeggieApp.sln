@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.Infrastructur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.Services.Products", "DeliVeggieApp.Services.Product\DeliVeggieApp.Services.Products.csproj", "{B3FFA896-AF6B-4215-B750-FFEB1CE06F40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliVeggieApp.Services.Test", "DeliVeggieApp.ProductsServiceTest\DeliVeggieApp.Services.Test.csproj", "{C62B06DA-C6D0-407E-B99C-3334222A8772}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliVeggieApp.Services.Test", "DeliVeggieApp.ProductsServiceTest\DeliVeggieApp.Services.Test.csproj", "{C62B06DA-C6D0-407E-B99C-3334222A8772}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0B94BE54-7D0B-442A-BF42-074170BDB2EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C62B06DA-C6D0-407E-B99C-3334222A8772}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C62B06DA-C6D0-407E-B99C-3334222A8772}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C62B06DA-C6D0-407E-B99C-3334222A8772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B94BE54-7D0B-442A-BF42-074170BDB2EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B94BE54-7D0B-442A-BF42-074170BDB2EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B94BE54-7D0B-442A-BF42-074170BDB2EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B94BE54-7D0B-442A-BF42-074170BDB2EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
